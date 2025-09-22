@@ -8,125 +8,165 @@
 import SwiftUI
 import UserNotifications
 
+// MARK: - Tela Principal do Aplicativo
+
 struct ContentView: View {
+    // Variável de estado para controlar se a tela de configurações está visível
+    @State private var showingSettings = false
 
     var body: some View {
-        // Usamos um ZStack para colocar uma cor de fundo gradiente
-        ZStack {
-            LinearGradient(
-                gradient: Gradient(colors: [Color.blue.opacity(0.3), Color.white]),
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .edgesIgnoringSafeArea(.all)
+        NavigationView {
+            // Usamos um ZStack para colocar a cor de fundo gradiente
+            ZStack {
+                LinearGradient(
+                    gradient: Gradient(colors: [Color.blue.opacity(0.3), Color.white]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .edgesIgnoringSafeArea(.all)
 
-            // Organiza os elementos verticalmente
-            VStack(spacing: 30) {
-                Spacer()
+                // Organiza os elementos verticalmente (o layout antigo que você gostava)
+                VStack(spacing: 30) {
+                    Spacer()
 
-                // Ícone principal
-                Image(systemName: "drop.fill")
-                    .font(.system(size: 100))
-                    .foregroundColor(.blue)
-                    .shadow(radius: 5)
-
-                // Título do App
-                Text("Lembrete de Água")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(.gray.opacity(0.9))
-
-                // Mensagem carinhosa
-                Text("Um lembrete para você se manter sempre hidratada, meu amor. ❤️")
-                    .font(.headline)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.gray)
-                    .padding(.horizontal)
-
-                Spacer()
-
-                // Botão para ativar os lembretes
-                Button(action: {
-                    ativarLembretes()
-                }) {
-                    Text("Ativar Lembretes (a cada hora)")
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(15)
+                    Image(systemName: "drop.fill")
+                        .font(.system(size: 100))
+                        .foregroundColor(.blue)
                         .shadow(radius: 5)
-                }
-                .padding(.horizontal, 40)
 
-                // Botão para parar os lembretes
-                Button(action: {
-                    pararLembretes()
-                }) {
-                    Text("Parar Lembretes")
+                    Text("Lembrete de Água")
+                        .font(.largeTitle)
                         .fontWeight(.bold)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.red)
-                        .foregroundColor(.white)
-                        .cornerRadius(15)
-                        .shadow(radius: 5)
-                }
-                .padding(.horizontal, 40)
+                        .foregroundColor(.primary) // Corrigido para Dark Mode
 
-                Spacer()
+                    Text("Toque na engrenagem ⚙️ para ajustar os lembretes.")
+                        .font(.headline)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.secondary) // Corrigido para Dark Mode
+                        .padding(.horizontal)
+
+                    Spacer()
+                    Spacer()
+                }
+            }
+            .navigationTitle("Início")
+            .navigationBarTitleDisplayMode(.inline)
+            // Adiciona um botão (a engrenagem) na barra de navegação
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        // Ao tocar, ativa a nossa variável de estado
+                        showingSettings = true
+                    }) {
+                        Image(systemName: "gearshape.fill")
+                            .font(.title2)
+                    }
+                }
+            }
+            // A "mágica" acontece aqui: quando `showingSettings` for true,
+            // a tela `SettingsView` será apresentada.
+            .sheet(isPresented: $showingSettings) {
+                SettingsView()
             }
         }
     }
+}
 
-    // MARK: - Funções de Notificação
+// MARK: - Tela de Configurações
 
-    /// Solicita permissão e agenda as notificações
-    func ativarLembretes() {
+struct SettingsView: View {
+    // Propriedades para Configuração
+    @AppStorage("lembretesAtivos") private var lembretesEstaoAtivos: Bool = false
+    @AppStorage("intervaloNotificacao") private var intervalo: Int = 60
+    @AppStorage("horaInicioInterval") private var horaInicioInterval: Double = Date().getIntervalFor(hour: 8)
+    @AppStorage("horaFimInterval") private var horaFimInterval: Double = Date().getIntervalFor(hour: 22)
+    
+    let intervalos = [30, 60, 90, 120]
+
+    var body: some View {
+        let horaInicioBinding = Binding<Date>(
+            get: { Date(timeIntervalSinceReferenceDate: self.horaInicioInterval) },
+            set: { self.horaInicioInterval = $0.timeIntervalSinceReferenceDate }
+        )
+        
+        let horaFimBinding = Binding<Date>(
+            get: { Date(timeIntervalSinceReferenceDate: self.horaFimInterval) },
+            set: { self.horaFimInterval = $0.timeIntervalSinceReferenceDate }
+        )
+        
+        return NavigationView {
+            Form {
+                Section(header: Text("Controle Geral")) {
+                    Toggle("Ativar Lembretes", isOn: $lembretesEstaoAtivos)
+                        .onChange(of: lembretesEstaoAtivos) { ativado in
+                            if ativado {
+                                solicitarPermissaoEAgendar()
+                            } else {
+                                pararLembretes()
+                            }
+                        }
+                }
+
+                if lembretesEstaoAtivos {
+                    Section(header: Text("Configurações")) {
+                        Picker("Lembrar a cada", selection: $intervalo) {
+                            ForEach(intervalos, id: \.self) { valor in
+                                Text("\(valor) minutos")
+                            }
+                        }
+                        
+                        DatePicker("Começar às", selection: horaInicioBinding, displayedComponents: .hourAndMinute)
+                        DatePicker("Parar às", selection: horaFimBinding, displayedComponents: .hourAndMinute)
+                    }
+                    
+                    Section {
+                        Button(action: {
+                            solicitarPermissaoEAgendar()
+                        }) {
+                            Text("Salvar e Reagendar Lembretes")
+                                .fontWeight(.bold)
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Configurações")
+        }
+    }
+
+    // Funções de Notificação
+    
+    func solicitarPermissaoEAgendar() {
         let center = UNUserNotificationCenter.current()
-
-        // 1. Solicita permissão ao usuário para enviar notificações
         center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            if granted {
-                print("Permissão para notificações concedida!")
-                agendarNotificacoes()
-            } else if let error = error {
-                print("Erro ao solicitar permissão: \(error.localizedDescription)")
-            }
+            if granted { agendarNotificacoes() }
         }
     }
 
-    /// Agenda as notificações recorrentes
     func agendarNotificacoes() {
         let center = UNUserNotificationCenter.current()
-        // Limpa notificações antigas para não acumular
         center.removeAllPendingNotificationRequests()
 
-        // 2. Define o conteúdo da notificação
-        let content = UNMutableNotificationContent()
-        content.title = "💧 Hora de Beber Água!! 💧"
-        content.body = "Amor, não se esqueça de se hidratar. É importante para sua saúde!"
-        content.sound = UNNotificationSound.default // Som padrão do sistema
-
-        // 3. Define o gatilho (trigger) - a cada 1 hora (3600 segundos)
-        // O `repeats` como `true` faz a notificação ser recorrente
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3600, repeats: true)
-
-        // 4. Cria a requisição da notificação
-        let request = UNNotificationRequest(identifier: "lembreteAgua", content: content, trigger: trigger)
-
-        // 5. Adiciona a requisição ao centro de notificações
-        center.add(request) { error in
-            if let error = error {
-                print("Erro ao agendar notificação: \(error.localizedDescription)")
-            } else {
-                print("Lembretes agendados com sucesso para cada hora!")
-            }
+        let calendar = Calendar.current
+        let horaInicioDate = Date(timeIntervalSinceReferenceDate: horaInicioInterval)
+        let horaFimDate = Date(timeIntervalSinceReferenceDate: horaFimInterval)
+        let horaFimComponentes = calendar.dateComponents([.hour, .minute], from: horaFimDate)
+        guard let horaFimHora = horaFimComponentes.hour else { return }
+        
+        var proximaHora = horaInicioDate
+        while calendar.component(.hour, from: proximaHora) < horaFimHora {
+            let componentes = calendar.dateComponents([.hour, .minute], from: proximaHora)
+            let content = UNMutableNotificationContent()
+            content.title = "💧 Hora da Hidratação! 💧"
+            content.body = "Amor, um copo de água agora para cuidar de você! ❤️"
+            content.sound = UNNotificationSound.default
+            let trigger = UNCalendarNotificationTrigger(dateMatching: componentes, repeats: true)
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            center.add(request)
+            proximaHora = calendar.date(byAdding: .minute, value: intervalo, to: proximaHora)!
         }
+        print("Lembretes (re)agendados.")
     }
 
-    /// Cancela todas as notificações pendentes
     func pararLembretes() {
         let center = UNUserNotificationCenter.current()
         center.removeAllPendingNotificationRequests()
@@ -134,7 +174,14 @@ struct ContentView: View {
     }
 }
 
-// Isso é usado para pré-visualizar o design no Xcode
+// Extensão (sem mudanças)
+extension Date {
+    func getIntervalFor(hour: Int) -> Double {
+        return Calendar.current.date(bySettingHour: hour, minute: 0, second: 0, of: self)!.timeIntervalSinceReferenceDate
+    }
+}
+
+// Preview (sem mudanças)
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
