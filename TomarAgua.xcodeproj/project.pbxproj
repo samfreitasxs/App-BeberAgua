@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DFF44E872E7DF871008CF43F /* TomarAguaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF44E862E7DF871008CF43F /* TomarAguaApp.swift */; };
+		DFF44E892E7DF871008CF43F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF44E882E7DF871008CF43F /* ContentView.swift */; };
+		DFF44E8B2E7DF878008CF43F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFF44E8A2E7DF878008CF43F /* Assets.xcassets */; };
+		DFF44E8E2E7DF878008CF43F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFF44E8D2E7DF878008CF43F /* Preview Assets.xcassets */; };
+		DFF44E982E7DF879008CF43F /* TomarAguaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF44E972E7DF879008CF43F /* TomarAguaTests.swift */; };
+		DFF44EA22E7DF879008CF43F /* TomarAguaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF44EA12E7DF879008CF43F /* TomarAguaUITests.swift */; };
+		DFF44EA42E7DF879008CF43F /* TomarAguaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF44EA32E7DF879008CF43F /* TomarAguaUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DFF44E942E7DF879008CF43F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFF44E7B2E7DF871008CF43F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DFF44E822E7DF871008CF43F;
+			remoteInfo = TomarAgua;
+		};
+		DFF44E9E2E7DF879008CF43F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFF44E7B2E7DF871008CF43F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DFF44E822E7DF871008CF43F;
+			remoteInfo = TomarAgua;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DFF44E832E7DF871008CF43F /* TomarAgua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TomarAgua.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFF44E862E7DF871008CF43F /* TomarAguaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomarAguaApp.swift; sourceTree = "<group>"; };
+		DFF44E882E7DF871008CF43F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DFF44E8A2E7DF878008CF43F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DFF44E8D2E7DF878008CF43F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DFF44E932E7DF879008CF43F /* TomarAguaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomarAguaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFF44E972E7DF879008CF43F /* TomarAguaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomarAguaTests.swift; sourceTree = "<group>"; };
+		DFF44E9D2E7DF879008CF43F /* TomarAguaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomarAguaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFF44EA12E7DF879008CF43F /* TomarAguaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomarAguaUITests.swift; sourceTree = "<group>"; };
+		DFF44EA32E7DF879008CF43F /* TomarAguaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomarAguaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DFF44E802E7DF871008CF43F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFF44E902E7DF879008CF43F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFF44E9A2E7DF879008CF43F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DFF44E7A2E7DF871008CF43F = {
+			isa = PBXGroup;
+			children = (
+				DFF44E852E7DF871008CF43F /* TomarAgua */,
+				DFF44E962E7DF879008CF43F /* TomarAguaTests */,
+				DFF44EA02E7DF879008CF43F /* TomarAguaUITests */,
+				DFF44E842E7DF871008CF43F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DFF44E842E7DF871008CF43F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DFF44E832E7DF871008CF43F /* TomarAgua.app */,
+				DFF44E932E7DF879008CF43F /* TomarAguaTests.xctest */,
+				DFF44E9D2E7DF879008CF43F /* TomarAguaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DFF44E852E7DF871008CF43F /* TomarAgua */ = {
+			isa = PBXGroup;
+			children = (
+				DFF44E862E7DF871008CF43F /* TomarAguaApp.swift */,
+				DFF44E882E7DF871008CF43F /* ContentView.swift */,
+				DFF44E8A2E7DF878008CF43F /* Assets.xcassets */,
+				DFF44E8C2E7DF878008CF43F /* Preview Content */,
+			);
+			path = TomarAgua;
+			sourceTree = "<group>";
+		};
+		DFF44E8C2E7DF878008CF43F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				DFF44E8D2E7DF878008CF43F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DFF44E962E7DF879008CF43F /* TomarAguaTests */ = {
+			isa = PBXGroup;
+			children = (
+				DFF44E972E7DF879008CF43F /* TomarAguaTests.swift */,
+			);
+			path = TomarAguaTests;
+			sourceTree = "<group>";
+		};
+		DFF44EA02E7DF879008CF43F /* TomarAguaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DFF44EA12E7DF879008CF43F /* TomarAguaUITests.swift */,
+				DFF44EA32E7DF879008CF43F /* TomarAguaUITestsLaunchTests.swift */,
+			);
+			path = TomarAguaUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DFF44E822E7DF871008CF43F /* TomarAgua */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFF44EA72E7DF879008CF43F /* Build configuration list for PBXNativeTarget "TomarAgua" */;
+			buildPhases = (
+				DFF44E7F2E7DF871008CF43F /* Sources */,
+				DFF44E802E7DF871008CF43F /* Frameworks */,
+				DFF44E812E7DF871008CF43F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TomarAgua;
+			productName = TomarAgua;
+			productReference = DFF44E832E7DF871008CF43F /* TomarAgua.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DFF44E922E7DF879008CF43F /* TomarAguaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFF44EAA2E7DF879008CF43F /* Build configuration list for PBXNativeTarget "TomarAguaTests" */;
+			buildPhases = (
+				DFF44E8F2E7DF879008CF43F /* Sources */,
+				DFF44E902E7DF879008CF43F /* Frameworks */,
+				DFF44E912E7DF879008CF43F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DFF44E952E7DF879008CF43F /* PBXTargetDependency */,
+			);
+			name = TomarAguaTests;
+			productName = TomarAguaTests;
+			productReference = DFF44E932E7DF879008CF43F /* TomarAguaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DFF44E9C2E7DF879008CF43F /* TomarAguaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFF44EAD2E7DF879008CF43F /* Build configuration list for PBXNativeTarget "TomarAguaUITests" */;
+			buildPhases = (
+				DFF44E992E7DF879008CF43F /* Sources */,
+				DFF44E9A2E7DF879008CF43F /* Frameworks */,
+				DFF44E9B2E7DF879008CF43F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DFF44E9F2E7DF879008CF43F /* PBXTargetDependency */,
+			);
+			name = TomarAguaUITests;
+			productName = TomarAguaUITests;
+			productReference = DFF44E9D2E7DF879008CF43F /* TomarAguaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DFF44E7B2E7DF871008CF43F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					DFF44E822E7DF871008CF43F = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					DFF44E922E7DF879008CF43F = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = DFF44E822E7DF871008CF43F;
+					};
+					DFF44E9C2E7DF879008CF43F = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = DFF44E822E7DF871008CF43F;
+					};
+				};
+			};
+			buildConfigurationList = DFF44E7E2E7DF871008CF43F /* Build configuration list for PBXProject "TomarAgua" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DFF44E7A2E7DF871008CF43F;
+			productRefGroup = DFF44E842E7DF871008CF43F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DFF44E822E7DF871008CF43F /* TomarAgua */,
+				DFF44E922E7DF879008CF43F /* TomarAguaTests */,
+				DFF44E9C2E7DF879008CF43F /* TomarAguaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DFF44E812E7DF871008CF43F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFF44E8E2E7DF878008CF43F /* Preview Assets.xcassets in Resources */,
+				DFF44E8B2E7DF878008CF43F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFF44E912E7DF879008CF43F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFF44E9B2E7DF879008CF43F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DFF44E7F2E7DF871008CF43F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFF44E892E7DF871008CF43F /* ContentView.swift in Sources */,
+				DFF44E872E7DF871008CF43F /* TomarAguaApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFF44E8F2E7DF879008CF43F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFF44E982E7DF879008CF43F /* TomarAguaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFF44E992E7DF879008CF43F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFF44EA42E7DF879008CF43F /* TomarAguaUITestsLaunchTests.swift in Sources */,
+				DFF44EA22E7DF879008CF43F /* TomarAguaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DFF44E952E7DF879008CF43F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DFF44E822E7DF871008CF43F /* TomarAgua */;
+			targetProxy = DFF44E942E7DF879008CF43F /* PBXContainerItemProxy */;
+		};
+		DFF44E9F2E7DF879008CF43F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DFF44E822E7DF871008CF43F /* TomarAgua */;
+			targetProxy = DFF44E9E2E7DF879008CF43F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DFF44EA52E7DF879008CF43F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DFF44EA62E7DF879008CF43F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DFF44EA82E7DF879008CF43F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TomarAgua/Preview Content\"";
+				DEVELOPMENT_TEAM = DH23YX5GQ3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samuelDev.TomarAgua;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DFF44EA92E7DF879008CF43F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TomarAgua/Preview Content\"";
+				DEVELOPMENT_TEAM = DH23YX5GQ3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samuelDev.TomarAgua;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DFF44EAB2E7DF879008CF43F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DH23YX5GQ3;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samuelDev.TomarAguaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TomarAgua.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TomarAgua";
+			};
+			name = Debug;
+		};
+		DFF44EAC2E7DF879008CF43F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DH23YX5GQ3;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samuelDev.TomarAguaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TomarAgua.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TomarAgua";
+			};
+			name = Release;
+		};
+		DFF44EAE2E7DF879008CF43F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DH23YX5GQ3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samuelDev.TomarAguaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TomarAgua;
+			};
+			name = Debug;
+		};
+		DFF44EAF2E7DF879008CF43F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DH23YX5GQ3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samuelDev.TomarAguaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TomarAgua;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DFF44E7E2E7DF871008CF43F /* Build configuration list for PBXProject "TomarAgua" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFF44EA52E7DF879008CF43F /* Debug */,
+				DFF44EA62E7DF879008CF43F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFF44EA72E7DF879008CF43F /* Build configuration list for PBXNativeTarget "TomarAgua" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFF44EA82E7DF879008CF43F /* Debug */,
+				DFF44EA92E7DF879008CF43F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFF44EAA2E7DF879008CF43F /* Build configuration list for PBXNativeTarget "TomarAguaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFF44EAB2E7DF879008CF43F /* Debug */,
+				DFF44EAC2E7DF879008CF43F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFF44EAD2E7DF879008CF43F /* Build configuration list for PBXNativeTarget "TomarAguaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFF44EAE2E7DF879008CF43F /* Debug */,
+				DFF44EAF2E7DF879008CF43F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DFF44E7B2E7DF871008CF43F /* Project object */;
+}
