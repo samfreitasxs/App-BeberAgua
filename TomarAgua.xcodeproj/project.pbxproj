@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF27910C2E81DEC500F7E6BF /* 810762__mokasza__natural-water-splash-02.aiff in Resources */ = {isa = PBXBuildFile; fileRef = DF27910B2E81DEC500F7E6BF /* 810762__mokasza__natural-water-splash-02.aiff */; };
+		DF27910D2E81DEC500F7E6BF /* 810762__mokasza__natural-water-splash-02.aiff in Resources */ = {isa = PBXBuildFile; fileRef = DF27910B2E81DEC500F7E6BF /* 810762__mokasza__natural-water-splash-02.aiff */; };
+		DF2791152E81F16400F7E6BF /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2791142E81F16400F7E6BF /* UserNotifications.framework */; };
+		DF2791172E81F16400F7E6BF /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2791162E81F16400F7E6BF /* UserNotificationsUI.framework */; };
+		DF27911A2E81F16500F7E6BF /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2791192E81F16500F7E6BF /* NotificationViewController.swift */; };
+		DF27911D2E81F16500F7E6BF /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF27911B2E81F16500F7E6BF /* MainInterface.storyboard */; };
+		DF2791212E81F16500F7E6BF /* WaterNotificationUI.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DF2791122E81F16400F7E6BF /* WaterNotificationUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DF2791272E81F41B00F7E6BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2791262E81F41B00F7E6BF /* AppDelegate.swift */; };
+		DF2791282E81F41B00F7E6BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2791262E81F41B00F7E6BF /* AppDelegate.swift */; };
+		DF2791302E81F69600F7E6BF /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF27912F2E81F69600F7E6BF /* NotificationService.swift */; };
+		DF2791342E81F69600F7E6BF /* WaterSummaryService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DF27912D2E81F69600F7E6BF /* WaterSummaryService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DFF44E872E7DF871008CF43F /* TomarAguaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF44E862E7DF871008CF43F /* TomarAguaApp.swift */; };
 		DFF44E892E7DF871008CF43F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF44E882E7DF871008CF43F /* ContentView.swift */; };
 		DFF44E8B2E7DF878008CF43F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFF44E8A2E7DF878008CF43F /* Assets.xcassets */; };
@@ -17,6 +28,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		DF27911F2E81F16500F7E6BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFF44E7B2E7DF871008CF43F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DF2791112E81F16400F7E6BF;
+			remoteInfo = WaterNotificationUI;
+		};
+		DF2791322E81F69600F7E6BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFF44E7B2E7DF871008CF43F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DF27912C2E81F69600F7E6BF;
+			remoteInfo = WaterSummaryService;
+		};
 		DFF44E942E7DF879008CF43F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DFF44E7B2E7DF871008CF43F /* Project object */;
@@ -33,7 +58,33 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		DF2791252E81F16500F7E6BF /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DF2791212E81F16500F7E6BF /* WaterNotificationUI.appex in Embed Foundation Extensions */,
+				DF2791342E81F69600F7E6BF /* WaterSummaryService.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		DF27910B2E81DEC500F7E6BF /* 810762__mokasza__natural-water-splash-02.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "810762__mokasza__natural-water-splash-02.aiff"; sourceTree = "<group>"; };
+		DF2791122E81F16400F7E6BF /* WaterNotificationUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WaterNotificationUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF2791142E81F16400F7E6BF /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		DF2791162E81F16400F7E6BF /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		DF2791192E81F16500F7E6BF /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		DF27911C2E81F16500F7E6BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		DF27911E2E81F16500F7E6BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF2791262E81F41B00F7E6BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DF27912D2E81F69600F7E6BF /* WaterSummaryService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WaterSummaryService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF27912F2E81F69600F7E6BF /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		DF2791312E81F69600F7E6BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFF44E832E7DF871008CF43F /* TomarAgua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TomarAgua.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFF44E862E7DF871008CF43F /* TomarAguaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomarAguaApp.swift; sourceTree = "<group>"; };
 		DFF44E882E7DF871008CF43F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,6 +98,22 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DF27910F2E81F16400F7E6BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF2791172E81F16400F7E6BF /* UserNotificationsUI.framework in Frameworks */,
+				DF2791152E81F16400F7E6BF /* UserNotifications.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF27912A2E81F69600F7E6BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DFF44E802E7DF871008CF43F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -71,12 +138,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF2791132E81F16400F7E6BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DF2791142E81F16400F7E6BF /* UserNotifications.framework */,
+				DF2791162E81F16400F7E6BF /* UserNotificationsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DF2791182E81F16400F7E6BF /* WaterNotificationUI */ = {
+			isa = PBXGroup;
+			children = (
+				DF2791192E81F16500F7E6BF /* NotificationViewController.swift */,
+				DF27911B2E81F16500F7E6BF /* MainInterface.storyboard */,
+				DF27911E2E81F16500F7E6BF /* Info.plist */,
+			);
+			path = WaterNotificationUI;
+			sourceTree = "<group>";
+		};
+		DF27912E2E81F69600F7E6BF /* WaterSummaryService */ = {
+			isa = PBXGroup;
+			children = (
+				DF27912F2E81F69600F7E6BF /* NotificationService.swift */,
+				DF2791312E81F69600F7E6BF /* Info.plist */,
+			);
+			path = WaterSummaryService;
+			sourceTree = "<group>";
+		};
 		DFF44E7A2E7DF871008CF43F = {
 			isa = PBXGroup;
 			children = (
+				DF2791262E81F41B00F7E6BF /* AppDelegate.swift */,
 				DFF44E852E7DF871008CF43F /* TomarAgua */,
 				DFF44E962E7DF879008CF43F /* TomarAguaTests */,
 				DFF44EA02E7DF879008CF43F /* TomarAguaUITests */,
+				DF2791182E81F16400F7E6BF /* WaterNotificationUI */,
+				DF27912E2E81F69600F7E6BF /* WaterSummaryService */,
+				DF2791132E81F16400F7E6BF /* Frameworks */,
 				DFF44E842E7DF871008CF43F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,6 +186,8 @@
 				DFF44E832E7DF871008CF43F /* TomarAgua.app */,
 				DFF44E932E7DF879008CF43F /* TomarAguaTests.xctest */,
 				DFF44E9D2E7DF879008CF43F /* TomarAguaUITests.xctest */,
+				DF2791122E81F16400F7E6BF /* WaterNotificationUI.appex */,
+				DF27912D2E81F69600F7E6BF /* WaterSummaryService.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,6 +224,7 @@
 			children = (
 				DFF44EA12E7DF879008CF43F /* TomarAguaUITests.swift */,
 				DFF44EA32E7DF879008CF43F /* TomarAguaUITestsLaunchTests.swift */,
+				DF27910B2E81DEC500F7E6BF /* 810762__mokasza__natural-water-splash-02.aiff */,
 			);
 			path = TomarAguaUITests;
 			sourceTree = "<group>";
@@ -130,6 +232,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DF2791112E81F16400F7E6BF /* WaterNotificationUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF2791222E81F16500F7E6BF /* Build configuration list for PBXNativeTarget "WaterNotificationUI" */;
+			buildPhases = (
+				DF27910E2E81F16400F7E6BF /* Sources */,
+				DF27910F2E81F16400F7E6BF /* Frameworks */,
+				DF2791102E81F16400F7E6BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WaterNotificationUI;
+			productName = WaterNotificationUI;
+			productReference = DF2791122E81F16400F7E6BF /* WaterNotificationUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		DF27912C2E81F69600F7E6BF /* WaterSummaryService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF2791352E81F69600F7E6BF /* Build configuration list for PBXNativeTarget "WaterSummaryService" */;
+			buildPhases = (
+				DF2791292E81F69600F7E6BF /* Sources */,
+				DF27912A2E81F69600F7E6BF /* Frameworks */,
+				DF27912B2E81F69600F7E6BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WaterSummaryService;
+			productName = WaterSummaryService;
+			productReference = DF27912D2E81F69600F7E6BF /* WaterSummaryService.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		DFF44E822E7DF871008CF43F /* TomarAgua */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DFF44EA72E7DF879008CF43F /* Build configuration list for PBXNativeTarget "TomarAgua" */;
@@ -137,10 +273,13 @@
 				DFF44E7F2E7DF871008CF43F /* Sources */,
 				DFF44E802E7DF871008CF43F /* Frameworks */,
 				DFF44E812E7DF871008CF43F /* Resources */,
+				DF2791252E81F16500F7E6BF /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DF2791202E81F16500F7E6BF /* PBXTargetDependency */,
+				DF2791332E81F69600F7E6BF /* PBXTargetDependency */,
 			);
 			name = TomarAgua;
 			productName = TomarAgua;
@@ -193,6 +332,12 @@
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
+					DF2791112E81F16400F7E6BF = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					DF27912C2E81F69600F7E6BF = {
+						CreatedOnToolsVersion = 15.2;
+					};
 					DFF44E822E7DF871008CF43F = {
 						CreatedOnToolsVersion = 15.2;
 					};
@@ -222,16 +367,34 @@
 				DFF44E822E7DF871008CF43F /* TomarAgua */,
 				DFF44E922E7DF879008CF43F /* TomarAguaTests */,
 				DFF44E9C2E7DF879008CF43F /* TomarAguaUITests */,
+				DF2791112E81F16400F7E6BF /* WaterNotificationUI */,
+				DF27912C2E81F69600F7E6BF /* WaterSummaryService */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DF2791102E81F16400F7E6BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF27911D2E81F16500F7E6BF /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF27912B2E81F69600F7E6BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DFF44E812E7DF871008CF43F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DFF44E8E2E7DF878008CF43F /* Preview Assets.xcassets in Resources */,
+				DF27910C2E81DEC500F7E6BF /* 810762__mokasza__natural-water-splash-02.aiff in Resources */,
 				DFF44E8B2E7DF878008CF43F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,16 +410,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF27910D2E81DEC500F7E6BF /* 810762__mokasza__natural-water-splash-02.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DF27910E2E81F16400F7E6BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF27911A2E81F16500F7E6BF /* NotificationViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF2791292E81F69600F7E6BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF2791302E81F69600F7E6BF /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DFF44E7F2E7DF871008CF43F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF2791272E81F41B00F7E6BF /* AppDelegate.swift in Sources */,
 				DFF44E892E7DF871008CF43F /* ContentView.swift in Sources */,
 				DFF44E872E7DF871008CF43F /* TomarAguaApp.swift in Sources */,
 			);
@@ -274,6 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF2791282E81F41B00F7E6BF /* AppDelegate.swift in Sources */,
 				DFF44EA42E7DF879008CF43F /* TomarAguaUITestsLaunchTests.swift in Sources */,
 				DFF44EA22E7DF879008CF43F /* TomarAguaUITests.swift in Sources */,
 			);
@@ -282,6 +464,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		DF2791202E81F16500F7E6BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DF2791112E81F16400F7E6BF /* WaterNotificationUI */;
+			targetProxy = DF27911F2E81F16500F7E6BF /* PBXContainerItemProxy */;
+		};
+		DF2791332E81F69600F7E6BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DF27912C2E81F69600F7E6BF /* WaterSummaryService */;
+			targetProxy = DF2791322E81F69600F7E6BF /* PBXContainerItemProxy */;
+		};
 		DFF44E952E7DF879008CF43F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DFF44E822E7DF871008CF43F /* TomarAgua */;
@@ -294,7 +486,118 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		DF27911B2E81F16500F7E6BF /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DF27911C2E81F16500F7E6BF /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		DF2791232E81F16500F7E6BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DH23YX5GQ3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WaterNotificationUI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WaterNotificationUI;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samuelDev.TomarAgua.WaterNotificationUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DF2791242E81F16500F7E6BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DH23YX5GQ3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WaterNotificationUI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WaterNotificationUI;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samuelDev.TomarAgua.WaterNotificationUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DF2791362E81F69600F7E6BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DH23YX5GQ3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WaterSummaryService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WaterSummaryService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samuelDev.TomarAgua.WaterSummaryService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DF2791372E81F69600F7E6BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DH23YX5GQ3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WaterSummaryService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WaterSummaryService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samuelDev.TomarAgua.WaterSummaryService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		DFF44EA52E7DF879008CF43F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -417,6 +720,7 @@
 		DFF44EA82E7DF879008CF43F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -446,6 +750,7 @@
 		DFF44EA92E7DF879008CF43F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -551,6 +856,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DF2791222E81F16500F7E6BF /* Build configuration list for PBXNativeTarget "WaterNotificationUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF2791232E81F16500F7E6BF /* Debug */,
+				DF2791242E81F16500F7E6BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DF2791352E81F69600F7E6BF /* Build configuration list for PBXNativeTarget "WaterSummaryService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF2791362E81F69600F7E6BF /* Debug */,
+				DF2791372E81F69600F7E6BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DFF44E7E2E7DF871008CF43F /* Build configuration list for PBXProject "TomarAgua" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
