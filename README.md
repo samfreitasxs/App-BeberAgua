@@ -56,6 +56,21 @@ Para rodar este projeto:
 * Este projeto utiliza um `AppDelegate` customizado com `@UIApplicationDelegateAdaptor` para lidar com as notificações em um projeto Pure SwiftUI.
 * A animação do ícone de humano foi ajustada para o `person.fill` do SF Symbols. Ajustes finos nos valores de `frame` e `clipShape` dentro de `HumanHydrationView` podem ser necessários para um preenchimento perfeito em diferentes dispositivos.
 
+## 🧑‍💻 Contribuição
+
+Contribuições são bem-vindas\! Se você encontrou um bug, tem uma sugestão de recurso ou gostaria de melhorar o código, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+## 📧 Contato
+
+Samuel Freitas - samuelSoftwareEngineer@proton.me
+
+---
+
 ##  Licença
 
 Este projeto está licenciado sob a Licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+Copyright (c) 2025 Samuel freitas
+
+
+
