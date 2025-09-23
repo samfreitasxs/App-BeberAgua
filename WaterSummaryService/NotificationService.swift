@@ -2,7 +2,8 @@
 //  NotificationService.swift
 //  WaterSummaryService
 //
-//  Created by Samuel Freitas on 22/09/25.
+//  Copyright (c) 2025  Samuel Freitas. All rights reserved.
+//  Licenciado sob a Licença MIT.
 //
 
 import UserNotifications

@@ -18,6 +18,8 @@
 		DF2791282E81F41B00F7E6BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2791262E81F41B00F7E6BF /* AppDelegate.swift */; };
 		DF2791302E81F69600F7E6BF /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF27912F2E81F69600F7E6BF /* NotificationService.swift */; };
 		DF2791342E81F69600F7E6BF /* WaterSummaryService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DF27912D2E81F69600F7E6BF /* WaterSummaryService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DF27913A2E8236CE00F7E6BF /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = DF2791392E8236CE00F7E6BF /* LICENSE.md */; };
+		DF27913B2E8236CE00F7E6BF /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = DF2791392E8236CE00F7E6BF /* LICENSE.md */; };
 		DFF44E872E7DF871008CF43F /* TomarAguaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF44E862E7DF871008CF43F /* TomarAguaApp.swift */; };
 		DFF44E892E7DF871008CF43F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF44E882E7DF871008CF43F /* ContentView.swift */; };
 		DFF44E8B2E7DF878008CF43F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFF44E8A2E7DF878008CF43F /* Assets.xcassets */; };
@@ -85,6 +87,7 @@
 		DF27912D2E81F69600F7E6BF /* WaterSummaryService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WaterSummaryService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF27912F2E81F69600F7E6BF /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		DF2791312E81F69600F7E6BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF2791392E8236CE00F7E6BF /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		DFF44E832E7DF871008CF43F /* TomarAgua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TomarAgua.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFF44E862E7DF871008CF43F /* TomarAguaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomarAguaApp.swift; sourceTree = "<group>"; };
 		DFF44E882E7DF871008CF43F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -169,6 +172,7 @@
 		DFF44E7A2E7DF871008CF43F = {
 			isa = PBXGroup;
 			children = (
+				DF2791392E8236CE00F7E6BF /* LICENSE.md */,
 				DF2791262E81F41B00F7E6BF /* AppDelegate.swift */,
 				DFF44E852E7DF871008CF43F /* TomarAgua */,
 				DFF44E962E7DF879008CF43F /* TomarAguaTests */,
@@ -393,6 +397,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF27913A2E8236CE00F7E6BF /* LICENSE.md in Resources */,
 				DFF44E8E2E7DF878008CF43F /* Preview Assets.xcassets in Resources */,
 				DF27910C2E81DEC500F7E6BF /* 810762__mokasza__natural-water-splash-02.aiff in Resources */,
 				DFF44E8B2E7DF878008CF43F /* Assets.xcassets in Resources */,
@@ -410,6 +415,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF27913B2E8236CE00F7E6BF /* LICENSE.md in Resources */,
 				DF27910D2E81DEC500F7E6BF /* 810762__mokasza__natural-water-splash-02.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,7 +2,8 @@
 //  TomarAguaTests.swift
 //  TomarAguaTests
 //
-//  Created by Samuel Freitas on 19/09/25.
+//  Copyright (c) 2025  Samuel Freitas. All rights reserved.
+//  Licenciado sob a Licença MIT.
 //
 
 import XCTest
