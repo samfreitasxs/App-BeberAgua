@@ -2,38 +2,39 @@
 //  ContentView.swift
 //  TomarAgua
 //
-//  Copyright (c) 2025  Samuel Freitas. All rights reserved.
+//  Copyright (c) 2025 Samuel Freitas. All rights reserved.
 //  Licenciado sob a Licença MIT.
 //
+
 import SwiftUI
 import UserNotifications
 
-// MARK: - View do Recipiente de Água Animado (AGORA UM COPO!)
+// MARK: - View do Ícone Humano Animado
 
-struct WaterContainerView: View {
-    var progress: Double // Progresso de 0.0 a 1.0 (de 0.0 a 1.0)
+struct HumanHydrationView: View {
+    var progress: Double // Progresso de 0.0 a 1.0
 
     var body: some View {
         ZStack {
-            // Camada de baixo: O COPO VAZIO (cinza)
-            Image(systemName: "waterbottle.fill") // Usando ícone de copo
+            // Camada de baixo: O HUMANO "VAZIO" (cinza)
+            Image(systemName: "person.fill") // Ícone de humano
                 .resizable()
                 .scaledToFit()
                 .foregroundColor(.gray.opacity(0.2))
 
-            // Camada do meio: A ÁGUA (azul), que vai preenchendo
-            Image(systemName: "waterbottle.fill") // Usando ícone de copo
+            // Camada do meio: A ÁGUA (azul), que vai preenchendo o corpo
+            Image(systemName: "person.fill") // Ícone de humano
                 .resizable()
                 .scaledToFit()
                 .foregroundColor(.blue)
-                // --- AJUSTE CRÍTICO AQUI ---
-                // Agora o corte começa mais "abaixo" para que a água apareça
-                // Multiplicamos por uma altura relativa para preencher o copo
-                // O 1.0 - progress faz com que o y diminua (suba) conforme o progresso aumenta
-                .clipShape(Rectangle().offset(y: 200 * (1.0 - progress))) // Ajuste a altura 200 conforme o ícone
+                // --- AJUSTE DO CORTE PARA O FORMATO HUMANO ---
+                // O valor `250` é uma estimativa da altura total do ícone.
+                // Você pode precisar ajustar `250` e `height: 270` abaixo
+                // para que a "água" preencha perfeitamente do zero ao topo dos pés à cabeça.
+                .clipShape(Rectangle().offset(y: 250 * (1.0 - progress)))
         }
-        // Ajustamos o frame para o formato do copo/garrafa
-        .frame(width: 150, height: 200) // Pode ajustar esses valores para o tamanho ideal
+        // Ajustamos o frame para o formato do ícone humano
+        .frame(width: 150, height: 270) // Ajuste o tamanho do humano aqui
         .animation(.easeInOut(duration: 0.5), value: progress)
     }
 }
@@ -68,7 +69,8 @@ struct ContentView: View {
                         .multilineTextAlignment(.center)
                         .padding(.horizontal)
 
-                    WaterContainerView(progress: Double(dailyWaterCount) / Double(dailyWaterGoal))
+                    // --- MUDANÇA AQUI: Usamos a nova HumanHydrationView ---
+                    HumanHydrationView(progress: Double(dailyWaterCount) / Double(dailyWaterGoal))
                         .padding(.bottom, 20)
 
                     VStack {
@@ -147,6 +149,7 @@ struct ContentView: View {
 }
 
 // MARK: - Tela de Configurações e Extensões
+// (O restante do código, da SettingsView em diante, continua o mesmo)
 
 struct SettingsView: View {
     @AppStorage("lembretesAtivos") private var lembretesAtivos: Bool = false
@@ -238,7 +241,6 @@ struct SettingsView: View {
         }
     }
 
-
     func agendarNotificacoes() {
         let center = UNUserNotificationCenter.current()
         center.removeAllPendingNotificationRequests()
@@ -248,23 +250,7 @@ struct SettingsView: View {
         let horaFimDate = Date(timeIntervalSinceReferenceDate: horaFimInterval)
         let horaFimComponentes = calendar.dateComponents([.hour, .minute], from: horaFimDate)
         guard let horaFimHora = horaFimComponentes.hour else { return }
-
-        // MARK: - Adicionar Ações de Notificação (Sim/Não) e Categoria
-        let simAction = UNNotificationAction(identifier: "TAKE_WATER_ACTION_YES",
-                                             title: "✅ Sim, tomei!",
-                                             options: .foreground) // .foreground abrirá o app, .background processa em segundo plano
-        let naoAction = UNNotificationAction(identifier: "TAKE_WATER_ACTION_NO",
-                                             title: "❌ Não tomei",
-                                             options: .destructive) // .destructive pode ter um visual diferente
-
-        // Categoria que agrupa as ações e será usada para as notificações
-        let waterCategory = UNNotificationCategory(identifier: "WATER_REMINDER_CATEGORY",
-                                                   actions: [simAction, naoAction],
-                                                   intentIdentifiers: [],
-                                                   options: .customDismissAction) // Permite personalizar o que acontece ao dispensar
-
-        center.setNotificationCategories([waterCategory]) // Registra a categoria no centro de notificações
-
+        
         var proximaHora = horaInicioDate
         while calendar.component(.hour, from: proximaHora) < horaFimHora {
             let componentes = calendar.dateComponents([.hour, .minute], from: proximaHora)
@@ -272,33 +258,12 @@ struct SettingsView: View {
             content.title = "💧 Hora da Hidratação! 💧"
             content.body = "Amor, um copo de água agora para cuidar de você! ❤️"
             content.sound = UNNotificationSound(named: UNNotificationSoundName("810762__mokasza__natural-water-splash-02.aiff"))
-            content.categoryIdentifier = "WATER_REMINDER_CATEGORY" // LINKA a notificação à categoria com os botões
-
+            
             let trigger = UNCalendarNotificationTrigger(dateMatching: componentes, repeats: true)
             let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
             center.add(request)
             proximaHora = calendar.date(byAdding: .minute, value: intervalo, to: proximaHora)!
         }
-        
-        // --- Agendar o resumo diário (Parte 2, só o agendamento por enquanto) ---
-        // Remova qualquer agendamento de resumo antigo
-        center.removePendingNotificationRequests(withIdentifiers: ["DAILY_SUMMARY_NOTIFICATION"])
-        
-        var summaryComponents = DateComponents()
-        summaryComponents.hour = 18 // 18h
-        summaryComponents.minute = 0
-        
-        let summaryContent = UNMutableNotificationContent()
-        summaryContent.title = "Seu Resumo de Hidratação 📊"
-        summaryContent.body = "Vamos ver como você se hidratou hoje! (Este texto será atualizado)"
-        summaryContent.sound = UNNotificationSound.default
-        summaryContent.categoryIdentifier = "DAILY_SUMMARY_CATEGORY" // Criaremos essa categoria depois
-        
-        let summaryTrigger = UNCalendarNotificationTrigger(dateMatching: summaryComponents, repeats: true)
-        let summaryRequest = UNNotificationRequest(identifier: "DAILY_SUMMARY_NOTIFICATION", content: summaryContent, trigger: summaryTrigger)
-        center.add(summaryRequest)
-        print("Notificação de resumo agendada para as 18h.")
-
         print("Lembretes (re)agendados.")
     }
 

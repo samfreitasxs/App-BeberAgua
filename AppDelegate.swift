@@ -10,12 +10,10 @@ import Foundation
 import UIKit
 import UserNotifications
 
-// Esta classe atuará como seu AppDelegate customizado para SwiftUI
 class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
     // Função chamada quando o aplicativo termina de carregar
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        // Define o AppDelegate como delegado para lidar com as notificações
         UNUserNotificationCenter.current().delegate = self
         print("AppDelegate configurado para UserNotificationCenter.")
         return true
@@ -25,8 +23,6 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     
     // Esta função é chamada quando o usuário interage com uma notificação (clica em um botão)
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        
-        // Certifique-se de usar o nome do seu App Group aqui
         let userDefaults = UserDefaults(suiteName: "group.com.samuelDev.TomarAgua") ?? .standard
         
         switch response.actionIdentifier {
@@ -52,6 +48,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
             print("Ação de notificação desconhecida: \(response.actionIdentifier)")
             break
         }
+        
         
         completionHandler()
     }
