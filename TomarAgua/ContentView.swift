@@ -26,14 +26,9 @@ struct HumanHydrationView: View {
                 .resizable()
                 .scaledToFit()
                 .foregroundColor(.blue)
-                // --- AJUSTE DO CORTE PARA O FORMATO HUMANO ---
-                // O valor `250` é uma estimativa da altura total do ícone.
-                // Você pode precisar ajustar `250` e `height: 270` abaixo
-                // para que a "água" preencha perfeitamente do zero ao topo dos pés à cabeça.
                 .clipShape(Rectangle().offset(y: 250 * (1.0 - progress)))
         }
-        // Ajustamos o frame para o formato do ícone humano
-        .frame(width: 150, height: 270) // Ajuste o tamanho do humano aqui
+        .frame(width: 150, height: 270)
         .animation(.easeInOut(duration: 0.5), value: progress)
     }
 }
@@ -148,7 +143,6 @@ struct ContentView: View {
 }
 
 // MARK: - Tela de Configurações e Extensões
-// (O restante do código, da SettingsView em diante, continua o mesmo)
 
 struct SettingsView: View {
     @AppStorage("lembretesAtivos") private var lembretesAtivos: Bool = false

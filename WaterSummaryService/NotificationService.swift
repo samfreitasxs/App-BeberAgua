@@ -1,7 +1,6 @@
 //
 //  NotificationService.swift
 //  WaterSummaryService
-//
 //  Copyright (c) 2025  Samuel Freitas. All rights reserved.
 //  Licenciado sob a Licença MIT.
 //
