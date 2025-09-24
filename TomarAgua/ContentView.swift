@@ -16,14 +16,13 @@ struct HumanHydrationView: View {
 
     var body: some View {
         ZStack {
-            // Camada de baixo: O HUMANO "VAZIO" (cinza)
-            Image(systemName: "person.fill") // Ícone de humano
+      
+            Image(systemName: "waterbottle.fill")
                 .resizable()
                 .scaledToFit()
                 .foregroundColor(.gray.opacity(0.2))
 
-            // Camada do meio: A ÁGUA (azul), que vai preenchendo o corpo
-            Image(systemName: "person.fill") // Ícone de humano
+            Image(systemName: "waterbottle.fill")
                 .resizable()
                 .scaledToFit()
                 .foregroundColor(.blue)
