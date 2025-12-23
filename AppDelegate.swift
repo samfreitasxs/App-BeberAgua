@@ -2,60 +2,73 @@
 //  AppDelegate.swift
 //  TomarAgua
 //
-//  Copyright (c) 2025  Samuel Freitas. All rights reserved.
-//  Licenciado sob a Licença MIT.
+//  Created by Samuel Freitas on [Data].
 //
 
 import Foundation
 import UIKit
 import UserNotifications
 
+// SEU ID DE APP GROUP REAL AQUI:
+let APP_GROUP_ID = "group.com.samuelDev.TomarAgua" // <--- VERIFIQUE ISSO!
+
 class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
-    // Função chamada quando o aplicativo termina de carregar
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         UNUserNotificationCenter.current().delegate = self
-        print("AppDelegate configurado para UserNotificationCenter.")
+        print("🔔 [DEBUG] AppDelegate: Delegado de notificação configurado.")
         return true
     }
     
     // MARK: - UNUserNotificationCenterDelegate
     
-    // Esta função é chamada quando o usuário interage com uma notificação (clica em um botão)
+    // Função chamada quando você CLICA em um botão da notificação
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        let userDefaults = UserDefaults(suiteName: "group.com.samuelDev.TomarAgua") ?? .standard
+        print("🔔 [DEBUG] AppDelegate: Recebeu resposta da notificação. Action ID: \(response.actionIdentifier)")
+        
+        guard let userDefaults = UserDefaults(suiteName: APP_GROUP_ID) else {
+            print("❌ [DEBUG] ERRO CRÍTICO: Não foi possível acessar UserDefaults com o App Group: \(APP_GROUP_ID). Verifique a configuração!")
+            completionHandler()
+            return
+        }
         
         switch response.actionIdentifier {
         case "TAKE_WATER_ACTION_YES":
-            print("Usuário clicou em SIM na notificação!")
+            print("✅ [DEBUG] Ação SIM detectada.")
             var currentCount = userDefaults.integer(forKey: "dailyWaterCount")
             let dailyGoal = userDefaults.integer(forKey: "dailyWaterGoal")
+            print("   -> Contagem atual antes: \(currentCount), Meta: \(dailyGoal)")
+            
             if currentCount < dailyGoal {
                 currentCount += 1
                 userDefaults.set(currentCount, forKey: "dailyWaterCount")
+                // Força a sincronização para garantir que salvou no disco
+                userDefaults.synchronize()
+                print("   -> Nova contagem salva: \(currentCount)")
+            } else {
+                print("   -> Meta já atingida, não incrementou.")
             }
-            // Disparar uma notificação local para atualizar a UI do app se ele estiver aberto
-            NotificationCenter.default.post(name: NSNotification.Name("waterCountUpdated"), object: nil)
+            
+            // Avisa a UI para atualizar
+            DispatchQueue.main.async {
+                print("🔔 [DEBUG] Enviando notificação para atualizar a UI.")
+                NotificationCenter.default.post(name: NSNotification.Name("waterCountUpdated"), object: nil)
+            }
+            
         case "TAKE_WATER_ACTION_NO":
-            print("Usuário clicou em NÃO na notificação.")
-            // Nenhuma ação específica para "Não" além de registrar, se necessário
-        case UNNotificationDefaultActionIdentifier: // O usuário clicou na notificação em si, não nos botões
-            print("Usuário clicou na notificação padrão.")
-            // Poderia abrir uma tela específica do app
-        case UNNotificationDismissActionIdentifier: // O usuário dispensou a notificação
-            print("Usuário dispensou a notificação.")
+            print("❌ [DEBUG] Ação NÃO detectada.")
+            
         default:
-            print("Ação de notificação desconhecida: \(response.actionIdentifier)")
-            break
+            print("ℹ️ [DEBUG] Outra ação ou clique na notificação.")
         }
         
-        
         completionHandler()
+        print("🔔 [DEBUG] Completion handler chamado. Fim do processamento.")
     }
     
-    // Esta função garante que a notificação é exibida mesmo com o app em primeiro plano
+    // Função para mostrar notificação com app aberto
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        print("Notificação será apresentada enquanto o app está em primeiro plano.")
-        completionHandler([.banner, .sound, .badge]) // Mostra a notificação normalmente
+        print("🔔 [DEBUG] Notificação recebida com app em primeiro plano. Mostrando banner.")
+        completionHandler([.banner, .sound, .badge])
     }
 }
