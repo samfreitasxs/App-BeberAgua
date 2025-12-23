@@ -158,7 +158,7 @@ struct SettingsView: View {
     
     @Binding var dailyWaterGoal: Int
     
-    let intervalos = [5, 10, 20, 30, 60, 90, 120]
+    let intervalos = [2, 5, 10, 20, 30, 60, 90, 120]
 
     @State private var showSaveAlert = false
     @Environment(\.dismiss) var dismiss
@@ -248,7 +248,7 @@ struct SettingsView: View {
         }
     }
 
-    // MARK: - Função de Agendamento Atualizada com Ações e Resumo
+    //MARK: - Função de Agendamento Atualizada com Ações e Resumo
     func agendarNotificacoes() {
         let center = UNUserNotificationCenter.current()
         center.removeAllPendingNotificationRequests() // Limpa agendamentos anteriores
