@@ -25,7 +25,6 @@ struct HumanHydrationView: View {
                 .resizable()
                 .scaledToFit()
                 .foregroundColor(.blue)
-                // Ajuste do offset para 250 conforme sua versão anterior para preencher corretamente
                 .clipShape(Rectangle().offset(y: 250 * (1.0 - progress)))
         }
         .frame(width: 150, height: 270)
@@ -118,7 +117,6 @@ struct ContentView: View {
             .onAppear(perform: checkDateAndResetCount)
             // MARK: - NOVO: Atualiza a UI quando a notificação altera os dados em segundo plano
             .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("waterCountUpdated"))) { _ in
-                // Força a leitura do valor atualizado do App Group
                 self.dailyWaterCount = UserDefaults(suiteName: "group.com.samuelDev.TomarAgua")?.integer(forKey: "dailyWaterCount") ?? self.dailyWaterCount
             }
         }
@@ -238,7 +236,6 @@ struct SettingsView: View {
         // Solicita permissão para alertas, sons e badges
         center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if granted {
-                // É importante fazer o agendamento na thread principal
                 DispatchQueue.main.async {
                     self.agendarNotificacoes()
                 }
@@ -259,7 +256,6 @@ struct SettingsView: View {
         let horaFimComponentes = calendar.dateComponents([.hour, .minute], from: horaFimDate)
         guard let horaFimHora = horaFimComponentes.hour else { return }
 
-        // 1. Definir as Ações (Botões) e Categorias
         let simAction = UNNotificationAction(identifier: "TAKE_WATER_ACTION_YES",
                                              title: "✅ Sim, tomei!",
                                              options: .foreground) // .foreground traz o app para frente
@@ -267,22 +263,17 @@ struct SettingsView: View {
                                              title: "❌ Não tomei",
                                              options: .destructive)
 
-        // Categoria para os lembretes regulares (com botões)
         let waterCategory = UNNotificationCategory(identifier: "WATER_REMINDER_CATEGORY",
                                                    actions: [simAction, naoAction],
                                                    intentIdentifiers: [],
                                                    options: .customDismissAction)
         
-        // Categoria para o resumo diário (sem botões por enquanto)
         let summaryCategory = UNNotificationCategory(identifier: "DAILY_SUMMARY_CATEGORY",
                                                      actions: [],
                                                      intentIdentifiers: [],
                                                      options: [])
 
-        // Registra as categorias no sistema
         center.setNotificationCategories([waterCategory, summaryCategory])
-
-        // 2. Agendar os Lembretes Regulares
         var proximaHora = horaInicioDate
         while calendar.component(.hour, from: proximaHora) < horaFimHora {
             let componentes = calendar.dateComponents([.hour, .minute], from: proximaHora)
@@ -290,7 +281,6 @@ struct SettingsView: View {
             content.title = "💧 Hora da Hidratação! 💧"
             content.body = "Amor, um copo de água agora para cuidar de você! ❤️"
             content.sound = UNNotificationSound(named: UNNotificationSoundName("810762__mokasza__natural-water-splash-02.aiff"))
-            // IMPORTANTE: Linka a notificação à categoria que tem os botões
             content.categoryIdentifier = "WATER_REMINDER_CATEGORY"
 
             let trigger = UNCalendarNotificationTrigger(dateMatching: componentes, repeats: true)
@@ -299,7 +289,7 @@ struct SettingsView: View {
             proximaHora = calendar.date(byAdding: .minute, value: intervalo, to: proximaHora)!
         }
         
-        // 3. Agendar o Resumo Diário (fixo às 18h)
+        // Agendar o Resumo Diário (fixo às 18h)
         // Garante que não há um resumo antigo agendado
         center.removePendingNotificationRequests(withIdentifiers: ["DAILY_SUMMARY_NOTIFICATION"])
         
@@ -309,7 +299,6 @@ struct SettingsView: View {
         
         let summaryContent = UNMutableNotificationContent()
         summaryContent.title = "Seu Resumo de Hidratação 📊"
-        // O corpo será atualizado pela extensão de serviço, este é apenas um placeholder
         summaryContent.body = "Confira seu progresso de hoje!"
         summaryContent.sound = UNNotificationSound.default
         summaryContent.categoryIdentifier = "DAILY_SUMMARY_CATEGORY" // Categoria do resumo
@@ -332,7 +321,6 @@ struct SettingsView: View {
 
 extension Date {
     func getIntervalFor(hour: Int) -> Double {
-        // Garante que usamos o calendário atual do usuário para definir a hora correta
         return Calendar.current.date(bySettingHour: hour, minute: 0, second: 0, of: self)?.timeIntervalSinceReferenceDate ?? self.timeIntervalSinceReferenceDate
     }
 }
