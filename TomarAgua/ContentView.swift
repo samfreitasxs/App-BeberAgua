@@ -289,8 +289,6 @@ struct SettingsView: View {
             proximaHora = calendar.date(byAdding: .minute, value: intervalo, to: proximaHora)!
         }
         
-        // Agendar o Resumo Diário (fixo às 18h)
-        // Garante que não há um resumo antigo agendado
         center.removePendingNotificationRequests(withIdentifiers: ["DAILY_SUMMARY_NOTIFICATION"])
         
         var summaryComponents = DateComponents()
