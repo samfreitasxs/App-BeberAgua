@@ -2,15 +2,14 @@
 //  AppDelegate.swift
 //  TomarAgua
 //
-//  Created by Samuel Freitas on [Data].
-//
+//  Copyright (c) 2025  Samuel Freitas. All rights reserved.
+//  Licenciado sob a Licença MIT.
 
 import Foundation
 import UIKit
 import UserNotifications
 
-// SEU ID DE APP GROUP REAL AQUI:
-let APP_GROUP_ID = "group.com.samuelDev.TomarAgua" // <--- VERIFIQUE ISSO!
+let APP_GROUP_ID = "group.com.samuelDev.TomarAgua"
 
 class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
@@ -21,9 +20,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     }
     
     // MARK: - UNUserNotificationCenterDelegate
-    
-    // Função chamada quando você CLICA em um botão da notificação
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print("🔔 [DEBUG] AppDelegate: Recebeu resposta da notificação. Action ID: \(response.actionIdentifier)")
         
         guard let userDefaults = UserDefaults(suiteName: APP_GROUP_ID) else {
@@ -42,14 +39,12 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
             if currentCount < dailyGoal {
                 currentCount += 1
                 userDefaults.set(currentCount, forKey: "dailyWaterCount")
-                // Força a sincronização para garantir que salvou no disco
                 userDefaults.synchronize()
                 print("   -> Nova contagem salva: \(currentCount)")
             } else {
                 print("   -> Meta já atingida, não incrementou.")
             }
             
-            // Avisa a UI para atualizar
             DispatchQueue.main.async {
                 print("🔔 [DEBUG] Enviando notificação para atualizar a UI.")
                 NotificationCenter.default.post(name: NSNotification.Name("waterCountUpdated"), object: nil)
@@ -66,7 +61,6 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         print("🔔 [DEBUG] Completion handler chamado. Fim do processamento.")
     }
     
-    // Função para mostrar notificação com app aberto
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         print("🔔 [DEBUG] Notificação recebida com app em primeiro plano. Mostrando banner.")
         completionHandler([.banner, .sound, .badge])

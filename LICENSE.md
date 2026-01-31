@@ -1,5 +1,5 @@
 Licença MIT
-Copyright (c) [2025] [Samuel Freitas] //
+Copyright (c) [2025] [Samuel Francisco de Freitas] //
 É concedida permissão, gratuita, a qualquer pessoa que obtenha uma cópia
 deste software e arquivos de documentação associados (o "Software"), para lidar
 no Software sem restrições, incluindo, sem limitação, os direitos

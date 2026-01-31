@@ -12,7 +12,7 @@ import UserNotifications
 // MARK: - View do Ícone Humano Animado (Mantida como você enviou: waterbottle.fill)
 
 struct HumanHydrationView: View {
-    var progress: Double // Progresso de 0.0 a 1.0
+    var progress: Double
 
     var body: some View {
         ZStack {
@@ -38,7 +38,6 @@ struct HumanHydrationView: View {
 struct ContentView: View {
     @State private var showingSettings = false
     
-    // MARK: - ATENÇÃO: Substitua "group.com.samuelDev.TomarAgua" pelo SEU App Group ID real aqui!
     @AppStorage("dailyWaterCount", store: UserDefaults(suiteName: "group.com.samuelDev.TomarAgua")) private var dailyWaterCount: Int = 0
     @AppStorage("dailyWaterGoal", store: UserDefaults(suiteName: "group.com.samuelDev.TomarAgua")) private var dailyWaterGoal: Int = 8
     @AppStorage("lastLogDate", store: UserDefaults(suiteName: "group.com.samuelDev.TomarAgua")) private var lastLogDate: String = ""
@@ -148,7 +147,6 @@ struct ContentView: View {
 // MARK: - Tela de Configurações e Extensões
 
 struct SettingsView: View {
-    // MARK: - ATENÇÃO: Substitua "group.com.samuelDev.TomarAgua" pelo SEU App Group ID real aqui também!
     @AppStorage("lembretesAtivos", store: UserDefaults(suiteName: "group.com.samuelDev.TomarAgua")) private var lembretesAtivos: Bool = false
     @AppStorage("intervaloNotificacao", store: UserDefaults(suiteName: "group.com.samuelDev.TomarAgua")) private var intervalo: Int = 60
     @AppStorage("horaInicioInterval", store: UserDefaults(suiteName: "group.com.samuelDev.TomarAgua")) private var horaInicioInterval: Double = Date().getIntervalFor(hour: 8)
@@ -233,7 +231,6 @@ struct SettingsView: View {
 
     func solicitarPermissaoEAgendar() {
         let center = UNUserNotificationCenter.current()
-        // Solicita permissão para alertas, sons e badges
         center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if granted {
                 DispatchQueue.main.async {
@@ -248,7 +245,7 @@ struct SettingsView: View {
     //MARK: - Função de Agendamento Atualizada com Ações e Resumo
     func agendarNotificacoes() {
         let center = UNUserNotificationCenter.current()
-        center.removeAllPendingNotificationRequests() // Limpa agendamentos anteriores
+        center.removeAllPendingNotificationRequests()
 
         let calendar = Calendar.current
         let horaInicioDate = Date(timeIntervalSinceReferenceDate: horaInicioInterval)
@@ -258,7 +255,7 @@ struct SettingsView: View {
 
         let simAction = UNNotificationAction(identifier: "TAKE_WATER_ACTION_YES",
                                              title: "✅ Sim, tomei!",
-                                             options: .foreground) // .foreground traz o app para frente
+                                             options: .foreground)
         let naoAction = UNNotificationAction(identifier: "TAKE_WATER_ACTION_NO",
                                              title: "❌ Não tomei",
                                              options: .destructive)
@@ -292,14 +289,14 @@ struct SettingsView: View {
         center.removePendingNotificationRequests(withIdentifiers: ["DAILY_SUMMARY_NOTIFICATION"])
         
         var summaryComponents = DateComponents()
-        summaryComponents.hour = 18 // 18:00 horas
+        summaryComponents.hour = 18
         summaryComponents.minute = 0
         
         let summaryContent = UNMutableNotificationContent()
         summaryContent.title = "Seu Resumo de Hidratação 📊"
         summaryContent.body = "Confira seu progresso de hoje!"
         summaryContent.sound = UNNotificationSound.default
-        summaryContent.categoryIdentifier = "DAILY_SUMMARY_CATEGORY" // Categoria do resumo
+        summaryContent.categoryIdentifier = "DAILY_SUMMARY_CATEGORY"
         
         let summaryTrigger = UNCalendarNotificationTrigger(dateMatching: summaryComponents, repeats: true)
         let summaryRequest = UNNotificationRequest(identifier: "DAILY_SUMMARY_NOTIFICATION", content: summaryContent, trigger: summaryTrigger)
